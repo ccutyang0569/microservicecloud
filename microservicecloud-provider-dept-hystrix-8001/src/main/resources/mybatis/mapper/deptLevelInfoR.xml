@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.founderbn.springcloud.dao.DeptDao">
+    <resultMap id="base_result" type="DeptLevelInfo">
+        <id property="id" column="ID"/>
+        <result property="depId" column="DEP_ID"/>
+        <result property="depName" column="DEP_NAME"/>
+        <result property="level" column="DEP_LEVEL"/>
+        <result property="parentId" column="DEP_ID"/>
+    </resultMap>
+
+   <select id="findOne"  parameterType="long"
+           resultMap="base_result">
+
+    select ID,DEP_NAME,DEP_ID,PARENT_ID,DEP_LEVEL
+
+    FROM DEP_LEVEL_INFO
+
+    where  ID=#{deptId}
+
+   </select>
+
+
+</mapper>
+
+
